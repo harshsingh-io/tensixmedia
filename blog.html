@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog - Ten Six</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link href="styles/main.css" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- Navigation (same as index.html) -->
+
+    <!-- Blog Hero Section -->
+    <section class="hero-section blog-hero text-center">
+      <div class="container">
+        <div class="row align-items-center min-vh-50">
+          <div class="col-lg-8 mx-auto" data-aos="fade-up">
+            <h1 class="display-4 text-gradient mb-4">Our Blog</h1>
+            <p class="lead text-light mb-4">
+              Insights, Updates, and Industry Trends
+            </p>
+            <div class="search-container">
+              <input
+                type="text"
+                class="form-control search-input"
+                placeholder="Search articles..."
+              />
+              <i class="fas fa-search search-icon"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="wave-bottom">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+          <path
+            fill="#ffffff"
+            fill-opacity="1"
+            d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,160C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+          ></path>
+        </svg>
+      </div>
+    </section>
+
+    <!-- Featured Posts Section -->
+    <section class="py-5">
+      <div class="container">
+        <h2 class="section-title text-center mb-5" data-aos="fade-up">
+          Featured Posts
+        </h2>
+        <div class="featured-post-slider" data-aos="fade-up">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="featured-post">
+                <div class="featured-image">
+                  <img src="images/blog/featured-1.jpg" alt="Featured Post" />
+                  <div class="category-badge">Technology</div>
+                </div>
+                <div class="featured-content">
+                  <h3>The Future of Web Development in 2024</h3>
+                  <p class="excerpt">
+                    Explore the latest trends and technologies shaping the
+                    future of web development...
+                  </p>
+                  <div class="post-meta">
+                    <span><i class="far fa-calendar"></i> Jan 15, 2024</span>
+                    <span><i class="far fa-clock"></i> 5 min read</span>
+                  </div>
+                  <a href="#" class="btn btn-outline-primary">Read More</a>
+                </div>
+              </div>
+            </div>
+            <!-- Add more featured posts -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="py-5">
+      <div class="container">
+        <div class="row">
+          <!-- Left Sidebar -->
+          <div class="col-lg-3">
+            <div class="categories-sidebar" data-aos="fade-right">
+              <h3 class="mb-4">Categories</h3>
+              <div class="category-list">
+                <a href="#" class="category-item active">
+                  <span>All Posts</span>
+                  <span class="count">12</span>
+                </a>
+                <a href="#" class="category-item">
+                  <span>Technology</span>
+                  <span class="count">5</span>
+                </a>
+                <a href="#" class="category-item">
+                  <span>Design</span>
+                  <span class="count">3</span>
+                </a>
+                <a href="#" class="category-item">
+                  <span>Marketing</span>
+                  <span class="count">4</span>
+                </a>
+              </div>
+
+              <h3 class="mb-4 mt-5">Popular Tags</h3>
+              <div class="tag-cloud">
+                <a href="#" class="tag">Web Development</a>
+                <a href="#" class="tag">UI/UX</a>
+                <a href="#" class="tag">SEO</a>
+                <a href="#" class="tag">Mobile Apps</a>
+                <a href="#" class="tag">React</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Blog Posts Grid -->
+          <div class="col-lg-9">
+            <div class="blog-grid">
+              <!-- Blog Card -->
+              <div class="blog-card" data-aos="fade-up">
+                <div class="blog-image">
+                  <img src="images/blog/post-1.jpg" alt="Blog Post" />
+                </div>
+                <div class="blog-content">
+                  <div class="blog-meta">
+                    <span class="category">Technology</span>
+                    <span class="date">Jan 15, 2024</span>
+                  </div>
+                  <h3>10 Essential Web Development Tools for 2024</h3>
+                  <p>
+                    Discover the must-have tools that will streamline your
+                    development workflow...
+                  </p>
+                  <a href="#" class="read-more">Read More</a>
+                </div>
+              </div>
+
+              <!-- Repeat similar blog cards -->
+            </div>
+
+            <!-- Load More Button -->
+            <div class="text-center mt-5">
+              <button class="btn btn-primary btn-lg">Load More Posts</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section py-5">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-6 text-center" data-aos="fade-up">
+            <h2 class="mb-4">Subscribe to Our Newsletter</h2>
+            <p class="mb-4">
+              Get the latest insights and trends delivered to your inbox
+            </p>
+            <form class="newsletter-form">
+              <div class="input-group">
+                <input
+                  type="email"
+                  class="form-control"
+                  placeholder="Enter your email"
+                />
+                <button class="btn btn-primary" type="submit">Subscribe</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer (same as index.html) -->
+
+    <script src="https://kit.fontawesome.com/your-kit-code.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/blog.js"></script>
+  </body>
+</html>

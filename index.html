@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ten Six - Digital Marketing Agency</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link href="styles/main.css" rel="stylesheet" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <span class="text-gradient">Ten Six</span>
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="index.html">Home</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+              >
+                Services
+              </a>
+              <ul class="dropdown-menu">
+                <li class="service-category">Marketing Services</li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="services/digital-marketing.html"
+                  >
+                    <i class="fas fa-bullhorn"></i>
+                    <div>
+                      Digital Marketing
+                      <span class="service-desc"
+                        >Comprehensive marketing solutions</span
+                      >
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="services/seo.html">
+                    <i class="fas fa-search"></i>
+                    <div>
+                      SEO
+                      <span class="service-desc"
+                        >Search engine optimization</span
+                      >
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="services/smm.html">
+                    <i class="fas fa-share-alt"></i>
+                    <div>
+                      SMM
+                      <span class="service-desc">Social media management</span>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="services/ppc.html">
+                    <i class="fas fa-mouse-pointer"></i>
+                    <div>
+                      PPC
+                      <span class="service-desc"
+                        >Pay-per-click advertising</span
+                      >
+                    </div>
+                  </a>
+                </li>
+
+                <li><hr class="dropdown-divider" /></li>
+
+                <li class="service-category">Development Services</li>
+                <li>
+                  <a class="dropdown-item" href="services/web-development.html">
+                    <i class="fas fa-code"></i>
+                    <div>
+                      Web Development
+                      <span class="service-desc">Custom website solutions</span>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="services/app-development.html">
+                    <i class="fas fa-mobile-alt"></i>
+                    <div>
+                      App Development
+                      <span class="service-desc">Mobile app solutions</span>
+                    </div>
+                  </a>
+                </li>
+
+                <li><hr class="dropdown-divider" /></li>
+
+                <li class="service-category">Design Services</li>
+                <li>
+                  <a class="dropdown-item" href="services/graphics-design.html">
+                    <i class="fas fa-palette"></i>
+                    <div>
+                      Graphics Design
+                      <span class="service-desc"
+                        >Creative design solutions</span
+                      >
+                    </div>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="blog.html">Blog</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section text-center">
+      <div class="container">
+        <div class="row align-items-center min-vh-100">
+          <div class="col-lg-8 mx-auto" data-aos="fade-up">
+            <h1 class="display-3 fw-bold mb-4 text-gradient">
+              Transforming Your Online Presence
+            </h1>
+            <p class="lead mb-5 text-light">
+              Ten Six - Your Partner in Digital Success
+            </p>
+            <div class="hero-buttons">
+              <a
+                href="contact.html"
+                class="btn btn-primary btn-lg me-3 pulse-button"
+                >Get Started</a
+              >
+              <a href="#services" class="btn btn-outline-light btn-lg"
+                >Our Services</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="scroll-down">
+          <a href="#services">
+            <i class="fas fa-chevron-down"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Overview -->
+    <section id="services" class="py-5 bg-light">
+      <div class="container">
+        <h2 class="text-center mb-5 position-relative" data-aos="fade-up">
+          <span class="section-title">Our Services</span>
+        </h2>
+
+        <div class="row g-4">
+          <!-- Service Cards -->
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-card">
+              <div class="service-icon">
+                <i class="fas fa-bullhorn"></i>
+              </div>
+              <h3>Digital Marketing</h3>
+              <p>
+                Comprehensive digital marketing solutions to boost your online
+                presence.
+              </p>
+              <div class="service-hover">
+                <ul class="service-features">
+                  <li>SEO Optimization</li>
+                  <li>Social Media Management</li>
+                  <li>Content Marketing</li>
+                </ul>
+                <a
+                  href="services/digital-marketing.html"
+                  class="btn btn-primary mt-3"
+                  >Learn More</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-card">
+              <div class="service-icon">
+                <i class="fas fa-search"></i>
+              </div>
+              <h3>SEO Services</h3>
+              <p>Improve your search rankings and drive organic traffic.</p>
+              <div class="service-hover">
+                <ul class="service-features">
+                  <li>Keyword Research</li>
+                  <li>On-Page Optimization</li>
+                  <li>Link Building</li>
+                </ul>
+                <a href="services/seo.html" class="btn btn-primary mt-3"
+                  >Learn More</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+            <div class="service-card">
+              <div class="service-icon">
+                <i class="fas fa-code"></i>
+              </div>
+              <h3>Web Development</h3>
+              <p>Custom websites that convert visitors into customers.</p>
+              <div class="service-hover">
+                <ul class="service-features">
+                  <li>Responsive Design</li>
+                  <li>E-commerce Solutions</li>
+                  <li>Custom Web Apps</li>
+                </ul>
+                <a
+                  href="services/web-development.html"
+                  class="btn btn-primary mt-3"
+                  >Learn More</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section py-5">
+      <div class="container">
+        <div class="row text-center">
+          <div class="col-md-3" data-aos="fade-up">
+            <div class="stat-item">
+              <div class="stat-number" data-target="500">0</div>
+              <div class="stat-label">Happy Clients</div>
+            </div>
+          </div>
+          <div class="col-md-3" data-aos="fade-up" data-aos-delay="100">
+            <div class="stat-item">
+              <div class="stat-number" data-target="1000">0</div>
+              <div class="stat-label">Projects Completed</div>
+            </div>
+          </div>
+          <div class="col-md-3" data-aos="fade-up" data-aos-delay="200">
+            <div class="stat-item">
+              <div class="stat-number" data-target="50">0</div>
+              <div class="stat-label">Team Experts</div>
+            </div>
+          </div>
+          <div class="col-md-3" data-aos="fade-up" data-aos-delay="300">
+            <div class="stat-item">
+              <div class="stat-number" data-target="15">0</div>
+              <div class="stat-label">Years Experience</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>About Us</h3>
+          <p>
+            We are dedicated to delivering innovative solutions and exceptional
+            service to our clients. Our team of experts works tirelessly to
+            ensure your success.
+          </p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="services/app-development.html">Services</a>
+            <a href="contact.html">Contact</a>
+            <a href="#">Blog</a>
+          </div>
+        </div>
+
+        <div class="footer-section">
+          <h3>Contact Info</h3>
+          <div class="contact-info">
+            <p>
+              <i class="fas fa-map-marker-alt"></i> 123 Business Street, Suite
+              100, City, Country
+            </p>
+            <p><i class="fas fa-phone"></i> +1 234 567 8900</p>
+            <p><i class="fas fa-envelope"></i> info@yourcompany.com</p>
+            <p><i class="fas fa-clock"></i> Mon - Fri: 9:00 AM - 6:00 PM</p>
+          </div>
+        </div>
+
+        <div class="footer-section">
+          <h3>Newsletter</h3>
+          <p>Subscribe to our newsletter for updates and insights.</p>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Enter your email" required />
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2024 Your Company Name. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
