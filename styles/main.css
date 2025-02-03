@@ -21,10 +21,31 @@ body {
 
 /* Hero Section */
 .hero-section {
-  background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.9)), 
-              url('../images/hero-bg.jpg') center/cover;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   color: white;
   padding: 100px 0;
+  z-index: 1;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0); 
+  z-index: 0;
+}
+
+.hero-section .text-gradient {
+  position: relative;
+  z-index: 2;
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 /* Services Cards */
@@ -1724,26 +1745,52 @@ body {
 .faq-accordion .accordion-button {
     background: white;
     border-radius: 10px !important;
+    padding: 1.5rem;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--primary-color);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
 }
 
 .faq-accordion .accordion-button:not(.collapsed) {
-    color: var(--primary-color);
-    background: white;
+    color: white;
+    background: var(--primary-color);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
-.faq-accordion .accordion-button:focus {
-    box-shadow: none;
-    border-color: rgba(52, 152, 219, 0.25);
+.faq-accordion .accordion-button::after {
+    background-size: 1.25rem;
+    transition: all 0.3s ease;
+    filter: opacity(0.6);
+}
+
+.faq-accordion .accordion-button:not(.collapsed)::after {
+    filter: brightness(0) invert(1);
 }
 
 .faq-accordion .accordion-body {
     background: white;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-} 
+    margin-top: 0.5rem;
+    border-radius: 10px;
+    padding: 1.5rem;
+    color: #666;
+    line-height: 1.6;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.faq-accordion .accordion-collapse {
+    border: none;
+}
+
+.faq-accordion .accordion-button:hover {
+    transform: translateY(-2px);
+}
+
+.faq-accordion .accordion-button:focus {
+    border-color: none;
+    box-shadow: none;
+}
 
 /* Blog Page Specific Styles */
 .blog-hero {
@@ -2311,4 +2358,109 @@ footer {
 
 .newsletter-form button:active {
     transform: translateY(0);
+}
+
+/* Get Started Page Styles */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.service-box {
+    background: var(--light-bg);
+    padding: 2rem;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.service-box:hover {
+    transform: translateY(-5px);
+}
+
+.service-box i {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.process-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.step {
+    text-align: center;
+    padding: 2rem;
+    position: relative;
+}
+
+.step-number {
+    width: 40px;
+    height: 40px;
+    background: var(--primary-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    font-weight: bold;
+}
+
+.contact-form {
+    background: var(--light-bg);
+    padding: 2rem;
+    border-radius: 10px;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
+}
+
+.contact-map {
+    height: 300px;
+    border-radius: 10px;
+    margin-top: 2rem;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.info-item i {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .process-steps {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-section .row {
+        flex-direction: column;
+    }
+    
+    .contact-info {
+        margin-top: 2rem;
+    }
 }
