@@ -9,31 +9,1326 @@
       rel="stylesheet"
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-    <link href="../styles/main.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --primary: #3498db;
+        --primary-dark: #2980b9;
+        --secondary: #6c5ce7;
+        --accent: #00d2d3;
+        --light: #f8f9fa;
+        --dark: #2d3436;
+        --text-dark: #2d3436;
+        --text-light: #ffffff;
+        --gradient-primary: linear-gradient(
+          135deg,
+          var(--primary) 0%,
+          var(--secondary) 100%
+        );
+        --gradient-dark: linear-gradient(135deg, #2d3436 0%, #4a5568 100%);
+        --transition: all 0.3s ease;
+        --shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        --shadow-hover: 0 10px 30px rgba(0, 0, 0, 0.15);
+        --border-radius: 12px;
+
+        /* Design Category Colors */
+        --brand: #ff9f43;
+        --marketing: #ee5253;
+        --ui: #0abde3;
+        --print: #10ac84;
+        --motion: #8854d0;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        color: var(--text-dark);
+        overflow-x: hidden;
+      }
+
+      .section-padding {
+        padding: 100px 0;
+      }
+
+      /* Navbar Styles */
+      .navbar {
+        padding: 15px 0;
+        transition: var(--transition);
+        background-color: transparent;
+      }
+
+      .navbar.scrolled {
+        background-color: var(--dark);
+        box-shadow: var(--shadow);
+        padding: 10px 0;
+      }
+
+      .navbar-brand img {
+        height: 45px;
+        transition: var(--transition);
+      }
+
+      .navbar-dark .navbar-nav .nav-link {
+        color: var(--text-light);
+        font-weight: 500;
+        padding: 8px 15px;
+        position: relative;
+        transition: var(--transition);
+      }
+
+      .navbar-dark .navbar-nav .nav-link:hover,
+      .navbar-dark .navbar-nav .nav-link.active {
+        color: var(--accent);
+      }
+
+      .navbar-dark .navbar-nav .nav-link::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        background: var(--accent);
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        transition: var(--transition);
+      }
+
+      .navbar-dark .navbar-nav .nav-link:hover::after,
+      .navbar-dark .navbar-nav .nav-link.active::after {
+        width: 70%;
+      }
+
+      .dropdown-menu {
+        background-color: var(--dark);
+        border: none;
+        border-radius: var(--border-radius);
+        box-shadow: var(--shadow);
+        padding: 15px;
+        min-width: 250px;
+      }
+
+      .service-category {
+        color: var(--accent);
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 600;
+        padding: 0.5rem 1rem;
+      }
+
+      .dropdown-item {
+        color: var(--text-light);
+        padding: 10px 15px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        transition: var(--transition);
+      }
+
+      .dropdown-item:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        color: var(--accent);
+      }
+
+      .dropdown-item i {
+        width: 24px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        transition: var(--transition);
+      }
+
+      .dropdown-item:hover i {
+        background: var(--accent);
+        color: var(--dark);
+      }
+
+      .service-desc {
+        display: block;
+        font-size: 0.75rem;
+        opacity: 0.7;
+      }
+
+      .dropdown-divider {
+        border-color: rgba(255, 255, 255, 0.1);
+        margin: 10px 0;
+      }
+
+      /* Hero Section with Design Elements */
+      .hero-section {
+        position: relative;
+        min-height: 60vh;
+        background: var(--gradient-dark);
+        display: flex;
+        align-items: center;
+        padding: 120px 0 100px;
+        overflow: hidden;
+      }
+
+      .design-elements {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        overflow: hidden;
+      }
+
+      .floating-shape {
+        position: absolute;
+        opacity: 0.1;
+        filter: brightness(1.5);
+      }
+
+      .shape1 {
+        top: 20%;
+        left: 10%;
+        width: 100px;
+        height: 100px;
+        background: var(--primary);
+        border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+        animation: morph 8s ease-in-out infinite, float 12s ease-in-out infinite;
+      }
+
+      .shape2 {
+        top: 15%;
+        right: 15%;
+        width: 150px;
+        height: 150px;
+        background: var(--secondary);
+        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+        animation: morph 8s ease-in-out infinite, float 10s ease-in-out infinite;
+        animation-delay: 2s;
+      }
+
+      .shape3 {
+        bottom: 25%;
+        left: 15%;
+        width: 80px;
+        height: 80px;
+        background: var(--accent);
+        border-radius: 50% 50% 20% 80% / 25% 80% 20% 75%;
+        animation: morph 8s ease-in-out infinite, float 14s ease-in-out infinite;
+        animation-delay: 1s;
+      }
+
+      .shape4 {
+        bottom: 20%;
+        right: 10%;
+        width: 120px;
+        height: 120px;
+        background: var(--brand);
+        border-radius: 30% 70% 70% 30% / 30% 52% 48% 70%;
+        animation: morph 10s ease-in-out infinite, float 8s ease-in-out infinite;
+        animation-delay: 3s;
+      }
+
+      .shape5 {
+        top: 40%;
+        left: 25%;
+        width: 60px;
+        height: 60px;
+        background: var(--marketing);
+        border-radius: 50%;
+        animation: float 9s ease-in-out infinite;
+        animation-delay: 2s;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
+      }
+
+      @keyframes morph {
+        0%,
+        100% {
+          border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+        }
+        25% {
+          border-radius: 58% 42% 75% 25% / 76% 46% 54% 24%;
+        }
+        50% {
+          border-radius: 50% 50% 20% 80% / 25% 80% 20% 75%;
+        }
+        75% {
+          border-radius: 67% 33% 47% 53% / 37% 20% 80% 63%;
+        }
+      }
+
+      .service-icon-large {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 30px;
+        font-size: 2.5rem;
+        color: var(--accent);
+        position: relative;
+        z-index: 2;
+      }
+
+      .hero-title {
+        font-size: 3.5rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        background: var(--gradient-primary);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        line-height: 1.1;
+        position: relative;
+        z-index: 2;
+      }
+
+      .hero-subtitle {
+        font-size: 1.3rem;
+        color: var(--text-light);
+        margin-bottom: 2rem;
+        opacity: 0.9;
+        position: relative;
+        z-index: 2;
+      }
+
+      .wave-bottom {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        line-height: 0;
+        z-index: 2;
+      }
+
+      .wave-bottom svg {
+        width: 100%;
+        height: auto;
+      }
+
+      .text-gradient {
+        background: var(--gradient-primary);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      /* Design Service Cards */
+      .design-card {
+        background-color: white;
+        border-radius: var(--border-radius);
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        transition: var(--transition);
+        height: 100%;
+        position: relative;
+      }
+
+      .design-card:hover {
+        transform: translateY(-10px);
+        box-shadow: var(--shadow-hover);
+      }
+
+      .design-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        transition: var(--transition);
+      }
+
+      .brand-identity::before {
+        background: var(--brand);
+      }
+
+      .marketing-materials::before {
+        background: var(--marketing);
+      }
+
+      .ui-ux-design::before {
+        background: var(--ui);
+      }
+
+      .print-design::before {
+        background: var(--print);
+      }
+
+      .motion-graphics::before {
+        background: var(--motion);
+      }
+
+      .design-card-header {
+        padding: 25px;
+        text-align: center;
+      }
+
+      .design-card-icon {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 20px;
+        font-size: 1.8rem;
+        color: white;
+        transition: var(--transition);
+      }
+
+      .brand-identity .design-card-icon {
+        background: var(--brand);
+      }
+
+      .marketing-materials .design-card-icon {
+        background: var(--marketing);
+      }
+
+      .ui-ux-design .design-card-icon {
+        background: var(--ui);
+      }
+
+      .print-design .design-card-icon {
+        background: var(--print);
+      }
+
+      .motion-graphics .design-card-icon {
+        background: var(--motion);
+      }
+
+      .design-card:hover .design-card-icon {
+        transform: scale(1.1);
+      }
+
+      .design-card h3 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 15px;
+      }
+
+      .design-samples {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1px;
+        margin-bottom: 20px;
+      }
+
+      .sample-img {
+        width: 100%;
+        height: 140px;
+        object-fit: cover;
+        transition: var(--transition);
+      }
+
+      .design-card:hover .sample-img {
+        filter: brightness(1.1);
+      }
+
+      .design-card-content {
+        padding: 0 25px 25px;
+      }
+
+      .feature-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .brand-identity .feature-list li:before {
+        content: "\f00c";
+        font-family: "Font Awesome 6 Free";
+        font-weight: 900;
+        position: absolute;
+        left: 0;
+        top: 2px;
+        color: var(--brand);
+      }
+
+      .marketing-materials .feature-list li:before {
+        content: "\f00c";
+        font-family: "Font Awesome 6 Free";
+        font-weight: 900;
+        position: absolute;
+        left: 0;
+        top: 2px;
+        color: var(--marketing);
+      }
+
+      .ui-ux-design .feature-list li:before {
+        content: "\f00c";
+        font-family: "Font Awesome 6 Free";
+        font-weight: 900;
+        position: absolute;
+        left: 0;
+        top: 2px;
+        color: var(--ui);
+      }
+
+      .print-design .feature-list li:before {
+        content: "\f00c";
+        font-family: "Font Awesome 6 Free";
+        font-weight: 900;
+        position: absolute;
+        left: 0;
+        top: 2px;
+        color: var(--print);
+      }
+
+      .motion-graphics .feature-list li:before {
+        content: "\f00c";
+        font-family: "Font Awesome 6 Free";
+        font-weight: 900;
+        position: absolute;
+        left: 0;
+        top: 2px;
+        color: var(--motion);
+      }
+
+      .feature-list li {
+        margin-bottom: 10px;
+        padding-left: 28px;
+        position: relative;
+        color: #555;
+      }
+
+      /* Process Section - Redesigned for Responsiveness */
+      .process-section {
+        background-color: var(--light);
+        padding: 100px 0;
+        position: relative;
+      }
+
+      .process-container {
+        position: relative;
+        z-index: 1;
+      }
+
+      .process-line {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        width: 4px;
+        background: var(--gradient-primary);
+        transform: translateX(-50%);
+        z-index: -1;
+      }
+
+      .process-item {
+        display: flex;
+        margin-bottom: 80px;
+        position: relative;
+      }
+
+      .process-item:last-child {
+        margin-bottom: 0;
+      }
+
+      .process-number {
+        background: var(--gradient-primary);
+        color: white;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        font-weight: 700;
+        flex-shrink: 0;
+        position: relative;
+        z-index: 2;
+        box-shadow: 0 0 0 8px rgba(52, 152, 219, 0.1);
+      }
+
+      .process-content {
+        background: white;
+        border-radius: var(--border-radius);
+        padding: 30px;
+        margin-left: 30px;
+        flex-grow: 1;
+        box-shadow: var(--shadow);
+        position: relative;
+      }
+
+      .process-content::before {
+        content: "";
+        position: absolute;
+        top: 20px;
+        left: -12px;
+        width: 24px;
+        height: 24px;
+        background: white;
+        transform: rotate(45deg);
+        border-radius: 2px;
+      }
+
+      .process-content h4 {
+        color: var(--primary);
+        margin-bottom: 15px;
+        font-weight: 600;
+      }
+
+      .process-content p {
+        margin-bottom: 0;
+        color: #666;
+      }
+
+      .process-icon {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: var(--light);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--primary);
+        font-size: 1.2rem;
+      }
+
+      /* Portfolio Grid */
+      .portfolio-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 30px;
+      }
+
+      .portfolio-item {
+        position: relative;
+        border-radius: var(--border-radius);
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        height: 300px;
+        transition: var(--transition);
+      }
+
+      .portfolio-item:hover {
+        transform: translateY(-10px);
+        box-shadow: var(--shadow-hover);
+      }
+
+      .portfolio-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: var(--transition);
+      }
+
+      .portfolio-item:hover img {
+        transform: scale(1.05);
+      }
+
+      .portfolio-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 30px 20px 20px;
+        background: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.8) 0%,
+          rgba(0, 0, 0, 0) 100%
+        );
+        transition: var(--transition);
+        transform: translateY(30px);
+        opacity: 0;
+      }
+
+      .portfolio-item:hover .portfolio-overlay {
+        transform: translateY(0);
+        opacity: 1;
+      }
+
+      .portfolio-overlay h5 {
+        color: white;
+        font-size: 1.3rem;
+        margin-bottom: 8px;
+      }
+
+      .portfolio-overlay p {
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 0.9rem;
+        margin-bottom: 0;
+      }
+
+      /* Design Tools Section */
+      .tools-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 30px;
+        margin-top: 40px;
+      }
+
+      .tool-item {
+        background: white;
+        border-radius: var(--border-radius);
+        padding: 25px 20px;
+        box-shadow: var(--shadow);
+        text-align: center;
+        transition: var(--transition);
+      }
+
+      .tool-item:hover {
+        transform: translateY(-10px);
+        box-shadow: var(--shadow-hover);
+      }
+
+      .tool-item img {
+        width: 70px;
+        height: 70px;
+        object-fit: contain;
+        margin-bottom: 15px;
+        transition: var(--transition);
+      }
+
+      .tool-item:hover img {
+        transform: scale(1.1);
+      }
+
+      .tool-item span {
+        display: block;
+        font-weight: 600;
+        color: var(--text-dark);
+        font-size: 0.9rem;
+      }
+
+      /* CTA Section */
+      .cta-section {
+        background: var(--gradient-primary);
+        color: white;
+        padding: 80px 0;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .cta-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+        opacity: 0.3;
+      }
+
+      .cta-section .btn-primary {
+        background: white;
+        color: var(--primary);
+      }
+
+      .cta-section .btn-primary:hover {
+        background: var(--dark);
+        color: white;
+      }
+
+      .design-cta .design-elements {
+        opacity: 0.1;
+        z-index: 0;
+      }
+
+      /* Footer */
+      footer {
+        background: var(--dark);
+        color: var(--text-light);
+        padding: 80px 0 0;
+      }
+
+      .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 40px;
+        padding: 0 20px;
+        max-width: 1300px;
+        margin: 0 auto;
+      }
+
+      .footer-section h3 {
+        position: relative;
+        font-size: 1.5rem;
+        margin-bottom: 25px;
+        padding-bottom: 10px;
+      }
+
+      .footer-section h3::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 50px;
+        height: 3px;
+        background: var(--primary);
+      }
+
+      .footer-section p {
+        line-height: 1.8;
+        margin-bottom: 20px;
+        opacity: 0.8;
+      }
+
+      .social-links {
+        display: flex;
+        gap: 15px;
+      }
+
+      .social-links a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        color: var(--text-light);
+        font-size: 1.2rem;
+        transition: var(--transition);
+      }
+
+      .social-links a:hover {
+        background: var(--primary);
+        transform: translateY(-5px);
+      }
+
+      .footer-links {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .footer-links a {
+        color: var(--text-light);
+        opacity: 0.8;
+        transition: var(--transition);
+        text-decoration: none;
+        display: inline-block;
+        padding: 5px 0;
+      }
+
+      .footer-links a:hover {
+        opacity: 1;
+        color: var(--primary);
+        transform: translateX(5px);
+      }
+
+      .contact-info p {
+        display: flex;
+        align-items: flex-start;
+        gap: 15px;
+        margin-bottom: 15px;
+      }
+
+      .contact-info i {
+        color: var(--primary);
+        min-width: 20px;
+        margin-top: 5px;
+      }
+
+      .newsletter-form {
+        display: flex;
+        margin-top: 20px;
+      }
+
+      .newsletter-form input {
+        flex: 1;
+        padding: 12px 15px;
+        border: none;
+        background: rgba(255, 255, 255, 0.1);
+        color: var(--text-light);
+        border-radius: 50px 0 0 50px;
+        outline: none;
+      }
+
+      .newsletter-form input::placeholder {
+        color: rgba(255, 255, 255, 0.5);
+      }
+
+      .newsletter-form button {
+        background: var(--primary);
+        color: white;
+        border: none;
+        padding: 0 20px;
+        border-radius: 0 50px 50px 0;
+        font-weight: 600;
+        cursor: pointer;
+        transition: var(--transition);
+      }
+
+      .newsletter-form button:hover {
+        background: var(--primary-dark);
+      }
+
+      .footer-bottom {
+        text-align: center;
+        padding: 25px 0;
+        margin-top: 60px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      /* Responsive Styles */
+      /* Small phones: up to 480px */
+      @media only screen and (max-width: 480px) {
+        .section-padding {
+          padding: 50px 0;
+        }
+
+        .hero-section {
+          padding: 100px 0 80px;
+          min-height: 50vh;
+        }
+
+        .hero-title {
+          font-size: 1.8rem;
+        }
+
+        .hero-subtitle {
+          font-size: 1rem;
+        }
+
+        .service-icon-large {
+          width: 60px;
+          height: 60px;
+          font-size: 1.5rem;
+          margin-bottom: 20px;
+        }
+
+        .design-card-header {
+          padding: 20px 15px;
+        }
+
+        .design-card-content {
+          padding: 0 15px 20px;
+        }
+
+        .design-card-icon {
+          width: 60px;
+          height: 60px;
+          font-size: 1.5rem;
+        }
+
+        .design-card h3 {
+          font-size: 1.3rem;
+        }
+
+        .sample-img {
+          height: 100px;
+        }
+
+        .process-section {
+          padding: 50px 0;
+        }
+
+        .process-item {
+          flex-direction: column;
+          margin-bottom: 30px;
+        }
+
+        .process-content {
+          margin-left: 0;
+          margin-top: 15px;
+          padding: 20px;
+        }
+
+        .process-number {
+          margin: 0 auto;
+          width: 50px;
+          height: 50px;
+          font-size: 1rem;
+        }
+
+        .process-content h4 {
+          font-size: 1.2rem;
+          text-align: center;
+        }
+
+        .portfolio-item {
+          height: 200px;
+        }
+
+        .portfolio-overlay h5 {
+          font-size: 1.1rem;
+        }
+
+        .tools-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 15px;
+        }
+
+        .tool-item {
+          padding: 15px 10px;
+        }
+
+        .tool-item img {
+          width: 50px;
+          height: 50px;
+        }
+
+        .cta-section {
+          padding: 50px 0;
+        }
+
+        .floating-shape {
+          display: none;
+        }
+
+        .footer-content {
+          grid-template-columns: 1fr;
+          gap: 30px;
+        }
+
+        .footer-bottom {
+          margin-top: 30px;
+        }
+      }
+
+      /* Larger phones: 481px to 767px */
+      @media only screen and (min-width: 481px) and (max-width: 767px) {
+        .section-padding {
+          padding: 60px 0;
+        }
+
+        .hero-section {
+          padding: 110px 0 90px;
+          min-height: 55vh;
+        }
+
+        .hero-title {
+          font-size: 2rem;
+        }
+
+        .hero-subtitle {
+          font-size: 1.1rem;
+        }
+
+        .service-icon-large {
+          width: 70px;
+          height: 70px;
+          font-size: 1.8rem;
+        }
+
+        .process-item {
+          flex-direction: column;
+          margin-bottom: 40px;
+        }
+
+        .process-content {
+          margin-left: 0;
+          margin-top: 20px;
+        }
+
+        .process-content::before {
+          display: none;
+        }
+
+        .process-number {
+          margin: 0 auto;
+        }
+
+        .process-line {
+          display: none;
+        }
+
+        .portfolio-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 20px;
+        }
+
+        .portfolio-item {
+          height: 220px;
+        }
+
+        .tools-grid {
+          grid-template-columns: repeat(3, 1fr);
+          gap: 20px;
+        }
+
+        .floating-shape {
+          transform: scale(0.6);
+          opacity: 0.05;
+        }
+
+        .footer-content {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 30px;
+        }
+      }
+
+      /* Tablets: 768px to 1023px */
+      @media only screen and (min-width: 768px) and (max-width: 1023px) {
+        .section-padding {
+          padding: 80px 0;
+        }
+
+        .navbar-collapse {
+          background: var(--dark);
+          padding: 20px;
+          margin-top: 15px;
+          border-radius: var(--border-radius);
+        }
+
+        .hero-section {
+          min-height: 60vh;
+          padding: 120px 0 100px;
+        }
+
+        .hero-title {
+          font-size: 2.5rem;
+        }
+
+        .service-icon-large {
+          width: 80px;
+          height: 80px;
+          font-size: 2rem;
+        }
+
+        .floating-shape {
+          transform: scale(0.8);
+        }
+
+        .process-section {
+          padding: 70px 0;
+        }
+
+        .portfolio-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 25px;
+        }
+
+        .portfolio-item {
+          height: 250px;
+        }
+
+        .tools-grid {
+          grid-template-columns: repeat(4, 1fr);
+        }
+
+        .footer-content {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 40px;
+        }
+      }
+
+      /* Desktops: 1024px and above */
+      @media only screen and (min-width: 1024px) {
+        .section-padding {
+          padding: 100px 0;
+        }
+
+        .hero-section {
+          min-height: 70vh;
+          padding: 250px 0 450px;
+        }
+
+        .hero-title {
+          font-size: 3.5rem;
+        }
+
+        .portfolio-grid {
+          grid-template-columns: repeat(3, 1fr);
+          gap: 30px;
+        }
+
+        .portfolio-item {
+          height: 300px;
+        }
+
+        .tools-grid {
+          grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        }
+
+        .process-line {
+          display: block;
+        }
+
+        .process-item {
+          display: flex;
+          flex-direction: row;
+        }
+
+        .process-content {
+          margin-left: 30px;
+          margin-top: 0;
+        }
+
+        .process-content::before {
+          display: block;
+        }
+
+        .footer-content {
+          grid-template-columns: repeat(4, 1fr);
+        }
+      }
+    </style>
   </head>
   <body>
-    <!-- Navigation (same as index.html with updated paths) -->
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="../index.html">
+          <img src="../tensix LOGO.svg" alt="Tensix Logo" />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="../index.html">Home</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle active"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+              >
+                Services
+              </a>
+              <ul class="dropdown-menu">
+                <li class="service-category">Marketing Services</li>
+                <li>
+                  <a class="dropdown-item" href="digital-marketing.html">
+                    <i class="fas fa-bullhorn"></i>
+                    <div>
+                      Digital Marketing
+                      <span class="service-desc"
+                        >Comprehensive marketing solutions</span
+                      >
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="seo.html">
+                    <i class="fas fa-search"></i>
+                    <div>
+                      SEO
+                      <span class="service-desc"
+                        >Search engine optimization</span
+                      >
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="smm.html">
+                    <i class="fas fa-share-alt"></i>
+                    <div>
+                      SMM
+                      <span class="service-desc">Social media management</span>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="ppc.html">
+                    <i class="fas fa-mouse-pointer"></i>
+                    <div>
+                      PPC
+                      <span class="service-desc"
+                        >Pay-per-click advertising</span
+                      >
+                    </div>
+                  </a>
+                </li>
 
-    <!-- Service Hero Section with Design Elements -->
-    <section class="hero-section text-center design-hero">
+                <li><hr class="dropdown-divider" /></li>
+
+                <li class="service-category">Development Services</li>
+                <li>
+                  <a class="dropdown-item" href="web-development.html">
+                    <i class="fas fa-code"></i>
+                    <div>
+                      Web Development
+                      <span class="service-desc">Custom website solutions</span>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="app-development.html">
+                    <i class="fas fa-mobile-alt"></i>
+                    <div>
+                      App Development
+                      <span class="service-desc">Mobile app solutions</span>
+                    </div>
+                  </a>
+                </li>
+
+                <li><hr class="dropdown-divider" /></li>
+
+                <li class="service-category">Design Services</li>
+                <li>
+                  <a class="dropdown-item active" href="graphics-design.html">
+                    <i class="fas fa-palette"></i>
+                    <div>
+                      Graphics Design
+                      <span class="service-desc"
+                        >Creative design solutions</span
+                      >
+                    </div>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../about.html">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../contact.html">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../blog.html">Blog</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section with Design Elements -->
+    <section class="hero-section text-center">
       <div class="design-elements">
         <div class="floating-shape shape1"></div>
         <div class="floating-shape shape2"></div>
         <div class="floating-shape shape3"></div>
+        <div class="floating-shape shape4"></div>
+        <div class="floating-shape shape5"></div>
       </div>
       <div class="container">
-        <div class="row align-items-center min-vh-75">
-          <div class="col-lg-8 mx-auto" data-aos="fade-up">
-            <div class="service-icon-large mb-4 design-icon">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <div class="service-icon-large">
               <i class="fas fa-palette"></i>
             </div>
-            <h1 class="display-4 text-gradient">Creative Design Solutions</h1>
-            <p class="lead text-light">
-              Transform your brand with stunning visual designs
+            <h1 class="hero-title">Creative Design Solutions</h1>
+            <p class="hero-subtitle">
+              Transform your brand with stunning visual designs that captivate
+              and engage your audience
             </p>
           </div>
         </div>
@@ -49,143 +1344,267 @@
       </div>
     </section>
 
-    <!-- Design Services Grid -->
-    <section class="py-5">
+    <!-- Design Services Section -->
+    <section class="section-padding">
       <div class="container">
         <div class="row">
           <div class="col-lg-8 mx-auto text-center mb-5">
-            <h2 class="section-title" data-aos="fade-up">
-              Our Design Services
-            </h2>
-            <p class="lead text-muted" data-aos="fade-up" data-aos-delay="100">
-              Bringing your vision to life through creative design
+            <h2 class="section-title">Our Design Services</h2>
+            <p class="lead text-muted">
+              Bringing your vision to life through creative design solutions
             </p>
           </div>
         </div>
+
         <div class="row g-4">
-          <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-            <div class="design-card">
-              <div class="design-card-icon">
-                <i class="fas fa-pencil-ruler"></i>
+          <div class="col-md-4">
+            <div class="design-card brand-identity">
+              <div class="design-card-header">
+                <div class="design-card-icon">
+                  <i class="fas fa-pencil-ruler"></i>
+                </div>
+                <h3>Brand Identity</h3>
               </div>
-              <h3>Brand Identity</h3>
               <div class="design-samples">
                 <img
-                  src="../images/design/brand-1.jpg"
+                  src="/api/placeholder/400/320"
                   alt="Brand Design"
                   class="sample-img"
                 />
                 <img
-                  src="../images/design/brand-2.jpg"
+                  src="/api/placeholder/400/320"
                   alt="Brand Design"
                   class="sample-img"
                 />
               </div>
-              <ul class="feature-list">
-                <li>Logo Design</li>
-                <li>Brand Guidelines</li>
-                <li>Visual Identity</li>
-              </ul>
+              <div class="design-card-content">
+                <ul class="feature-list">
+                  <li>Logo Design</li>
+                  <li>Brand Guidelines</li>
+                  <li>Visual Identity</li>
+                  <li>Business Cards & Stationery</li>
+                </ul>
+              </div>
             </div>
           </div>
-          <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-            <div class="design-card">
-              <div class="design-card-icon">
-                <i class="fas fa-paint-brush"></i>
+
+          <div class="col-md-4">
+            <div class="design-card marketing-materials">
+              <div class="design-card-header">
+                <div class="design-card-icon">
+                  <i class="fas fa-paint-brush"></i>
+                </div>
+                <h3>Marketing Materials</h3>
               </div>
-              <h3>Marketing Materials</h3>
               <div class="design-samples">
                 <img
-                  src="../images/design/marketing-1.jpg"
+                  src="/api/placeholder/400/320"
                   alt="Marketing Design"
                   class="sample-img"
                 />
                 <img
-                  src="../images/design/marketing-2.jpg"
+                  src="/api/placeholder/400/320"
                   alt="Marketing Design"
                   class="sample-img"
                 />
               </div>
-              <ul class="feature-list">
-                <li>Social Media Graphics</li>
-                <li>Brochures & Flyers</li>
-                <li>Banner Ads</li>
-              </ul>
+              <div class="design-card-content">
+                <ul class="feature-list">
+                  <li>Social Media Graphics</li>
+                  <li>Brochures & Flyers</li>
+                  <li>Banner Ads</li>
+                  <li>Email Templates</li>
+                </ul>
+              </div>
             </div>
           </div>
-          <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
-            <div class="design-card">
-              <div class="design-card-icon">
-                <i class="fas fa-desktop"></i>
+
+          <div class="col-md-4">
+            <div class="design-card ui-ux-design">
+              <div class="design-card-header">
+                <div class="design-card-icon">
+                  <i class="fas fa-desktop"></i>
+                </div>
+                <h3>UI/UX Design</h3>
               </div>
-              <h3>UI/UX Design</h3>
               <div class="design-samples">
                 <img
-                  src="../images/design/ui-1.jpg"
+                  src="/api/placeholder/400/320"
                   alt="UI Design"
                   class="sample-img"
                 />
                 <img
-                  src="../images/design/ui-2.jpg"
+                  src="/api/placeholder/400/320"
                   alt="UI Design"
                   class="sample-img"
                 />
               </div>
-              <ul class="feature-list">
-                <li>Website Design</li>
-                <li>App Interfaces</li>
-                <li>Prototypes</li>
-              </ul>
+              <div class="design-card-content">
+                <ul class="feature-list">
+                  <li>Website Design</li>
+                  <li>App Interfaces</li>
+                  <li>Wireframes & Prototypes</li>
+                  <li>User Experience Research</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row g-4 mt-4">
+          <div class="col-md-6">
+            <div class="design-card print-design">
+              <div class="design-card-header">
+                <div class="design-card-icon">
+                  <i class="fas fa-print"></i>
+                </div>
+                <h3>Print Design</h3>
+              </div>
+              <div class="design-samples">
+                <img
+                  src="/api/placeholder/400/320"
+                  alt="Print Design"
+                  class="sample-img"
+                />
+                <img
+                  src="/api/placeholder/400/320"
+                  alt="Print Design"
+                  class="sample-img"
+                />
+              </div>
+              <div class="design-card-content">
+                <ul class="feature-list">
+                  <li>Posters & Banners</li>
+                  <li>Packaging Design</li>
+                  <li>Magazine & Book Layouts</li>
+                  <li>Trade Show Materials</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="design-card motion-graphics">
+              <div class="design-card-header">
+                <div class="design-card-icon">
+                  <i class="fas fa-film"></i>
+                </div>
+                <h3>Motion Graphics</h3>
+              </div>
+              <div class="design-samples">
+                <img
+                  src="/api/placeholder/400/320"
+                  alt="Motion Graphics"
+                  class="sample-img"
+                />
+                <img
+                  src="/api/placeholder/400/320"
+                  alt="Motion Graphics"
+                  class="sample-img"
+                />
+              </div>
+              <div class="design-card-content">
+                <ul class="feature-list">
+                  <li>Animated Logos</li>
+                  <li>Explainer Videos</li>
+                  <li>Social Media Animations</li>
+                  <li>Video Intros & Outros</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Design Process with Interactive Elements -->
-    <section class="py-5 bg-light">
+    <!-- Process Section - Redesigned -->
+    <section class="process-section">
       <div class="container">
-        <h2 class="text-center mb-5" data-aos="fade-up">
-          Our Creative Process
-        </h2>
-        <div class="design-process">
-          <div class="process-step" data-aos="fade-up">
-            <div class="step-number">01</div>
-            <div class="step-content">
-              <h4>Discovery</h4>
-              <p>Understanding your brand, goals, and vision</p>
-              <div class="step-icon">
-                <i class="fas fa-lightbulb"></i>
-              </div>
-            </div>
+        <div class="row mb-5">
+          <div class="col-lg-8 mx-auto text-center">
+            <h2 class="section-title">Our Creative Process</h2>
+            <p class="lead text-muted">
+              How we transform your ideas into exceptional designs
+            </p>
           </div>
-          <div class="process-step" data-aos="fade-up" data-aos-delay="100">
-            <div class="step-number">02</div>
-            <div class="step-content">
-              <h4>Concept Development</h4>
-              <p>Creating initial design concepts and mockups</p>
-              <div class="step-icon">
-                <i class="fas fa-pencil-alt"></i>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-10 mx-auto">
+            <div class="process-container">
+              <!-- Process Line (visible on desktop) -->
+              <div class="process-line d-none d-md-block"></div>
+
+              <!-- Process Item 1 -->
+              <div class="process-item">
+                <div class="process-number">01</div>
+                <div class="process-content">
+                  <div class="process-icon">
+                    <i class="fas fa-lightbulb"></i>
+                  </div>
+                  <h4>Discovery</h4>
+                  <p>
+                    We start by understanding your brand, goals, and vision.
+                    This involves an in-depth discussion about your project
+                    requirements, target audience, competitive landscape, and
+                    desired outcomes to ensure our designs align with your
+                    objectives.
+                  </p>
+                </div>
               </div>
-            </div>
-          </div>
-          <div class="process-step" data-aos="fade-up" data-aos-delay="200">
-            <div class="step-number">03</div>
-            <div class="step-content">
-              <h4>Refinement</h4>
-              <p>Perfecting the design through feedback and iteration</p>
-              <div class="step-icon">
-                <i class="fas fa-sliders-h"></i>
+
+              <!-- Process Item 2 -->
+              <div class="process-item">
+                <div class="process-number">02</div>
+                <div class="process-content">
+                  <div class="process-icon">
+                    <i class="fas fa-pencil-alt"></i>
+                  </div>
+                  <h4>Concept Development</h4>
+                  <p>
+                    Our creative team develops initial design concepts and
+                    mockups based on the discovery phase. We explore different
+                    creative directions, color schemes, typography, and visual
+                    elements to find the perfect style that resonates with your
+                    brand identity.
+                  </p>
+                </div>
               </div>
-            </div>
-          </div>
-          <div class="process-step" data-aos="fade-up" data-aos-delay="300">
-            <div class="step-number">04</div>
-            <div class="step-content">
-              <h4>Delivery</h4>
-              <p>Providing final files in all required formats</p>
-              <div class="step-icon">
-                <i class="fas fa-check-circle"></i>
+
+              <!-- Process Item 3 -->
+              <div class="process-item">
+                <div class="process-number">03</div>
+                <div class="process-content">
+                  <div class="process-icon">
+                    <i class="fas fa-sliders-h"></i>
+                  </div>
+                  <h4>Refinement</h4>
+                  <p>
+                    We perfect the design through feedback and iteration. Based
+                    on your input, we make adjustments and refinements to ensure
+                    the final design meets your expectations. This collaborative
+                    process continues until you're completely satisfied with the
+                    result.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Process Item 4 -->
+              <div class="process-item">
+                <div class="process-number">04</div>
+                <div class="process-content">
+                  <div class="process-icon">
+                    <i class="fas fa-check-circle"></i>
+                  </div>
+                  <h4>Delivery</h4>
+                  <p>
+                    Once the design is approved, we prepare and deliver the
+                    final files in all required formats. For brand identity
+                    projects, we provide comprehensive brand guidelines. For
+                    digital designs, we ensure all assets are optimized for
+                    their intended platforms.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -194,70 +1613,144 @@
     </section>
 
     <!-- Portfolio Showcase -->
-    <section class="py-5">
+    <section class="section-padding">
       <div class="container">
-        <h2 class="text-center mb-5" data-aos="fade-up">Our Portfolio</h2>
+        <div class="row mb-5">
+          <div class="col-lg-8 mx-auto text-center">
+            <h2 class="section-title">Our Portfolio</h2>
+            <p class="lead text-muted">See our creative work in action</p>
+          </div>
+        </div>
+
         <div class="portfolio-grid">
-          <div class="portfolio-item" data-aos="fade-up">
-            <img src="../images/portfolio/design-1.jpg" alt="Design Work" />
+          <div class="portfolio-item">
+            <img src="/api/placeholder/400/320" alt="Brand Identity Project" />
             <div class="portfolio-overlay">
               <h5>Brand Identity</h5>
-              <p>Logo & Brand Guidelines</p>
+              <p>Logo & Brand Guidelines for a Fashion Boutique</p>
             </div>
           </div>
-          <!-- Add more portfolio items -->
+
+          <div class="portfolio-item">
+            <img src="/api/placeholder/400/320" alt="UI/UX Design Project" />
+            <div class="portfolio-overlay">
+              <h5>UI/UX Design</h5>
+              <p>Mobile App Interface for a Fitness Platform</p>
+            </div>
+          </div>
+
+          <div class="portfolio-item">
+            <img
+              src="/api/placeholder/400/320"
+              alt="Marketing Materials Project"
+            />
+            <div class="portfolio-overlay">
+              <h5>Marketing Materials</h5>
+              <p>Social Media Campaign for a Restaurant Chain</p>
+            </div>
+          </div>
+
+          <div class="portfolio-item">
+            <img src="/api/placeholder/400/320" alt="Print Design Project" />
+            <div class="portfolio-overlay">
+              <h5>Print Design</h5>
+              <p>Packaging Design for an Organic Product Line</p>
+            </div>
+          </div>
+
+          <div class="portfolio-item">
+            <img src="/api/placeholder/400/320" alt="Motion Graphics Project" />
+            <div class="portfolio-overlay">
+              <h5>Motion Graphics</h5>
+              <p>Explainer Video for a Tech Startup</p>
+            </div>
+          </div>
+
+          <div class="portfolio-item">
+            <img src="/api/placeholder/400/320" alt="Website Design Project" />
+            <div class="portfolio-overlay">
+              <h5>Website Design</h5>
+              <p>E-commerce Site Redesign for a Retail Brand</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Design Tools Section -->
-    <section class="py-5 bg-light">
+    <section class="section-padding bg-light">
       <div class="container">
-        <h2 class="text-center mb-5" data-aos="fade-up">Tools We Master</h2>
+        <div class="row">
+          <div class="col-lg-8 mx-auto text-center">
+            <h2 class="section-title">Tools We Master</h2>
+            <p class="lead text-muted">
+              Professional design software we use to create exceptional work
+            </p>
+          </div>
+        </div>
+
         <div class="tools-grid">
-          <div class="tool-item" data-aos="fade-up">
-            <img src="../images/tools/photoshop.png" alt="Adobe Photoshop" />
+          <div class="tool-item">
+            <img src="/api/placeholder/70/70" alt="Adobe Photoshop" />
             <span>Photoshop</span>
           </div>
-          <div class="tool-item" data-aos="fade-up" data-aos-delay="100">
-            <img
-              src="../images/tools/illustrator.png"
-              alt="Adobe Illustrator"
-            />
+
+          <div class="tool-item">
+            <img src="/api/placeholder/70/70" alt="Adobe Illustrator" />
             <span>Illustrator</span>
           </div>
-          <div class="tool-item" data-aos="fade-up" data-aos-delay="200">
-            <img src="../images/tools/xd.png" alt="Adobe XD" />
+
+          <div class="tool-item">
+            <img src="/api/placeholder/70/70" alt="Adobe XD" />
             <span>Adobe XD</span>
           </div>
-          <div class="tool-item" data-aos="fade-up" data-aos-delay="300">
-            <img src="../images/tools/figma.png" alt="Figma" />
+
+          <div class="tool-item">
+            <img src="/api/placeholder/70/70" alt="Figma" />
             <span>Figma</span>
+          </div>
+
+          <div class="tool-item">
+            <img src="/api/placeholder/70/70" alt="Adobe InDesign" />
+            <span>InDesign</span>
+          </div>
+
+          <div class="tool-item">
+            <img src="/api/placeholder/70/70" alt="Adobe After Effects" />
+            <span>After Effects</span>
+          </div>
+
+          <div class="tool-item">
+            <img src="/api/placeholder/70/70" alt="Adobe Premiere Pro" />
+            <span>Premiere Pro</span>
+          </div>
+
+          <div class="tool-item">
+            <img src="/api/placeholder/70/70" alt="Sketch" />
+            <span>Sketch</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- CTA Section with Design Elements -->
-    <section class="cta-section text-center py-5 design-cta">
+    <!-- CTA Section -->
+    <section class="cta-section design-cta">
       <div class="design-elements">
         <div class="floating-shape shape4"></div>
         <div class="floating-shape shape5"></div>
       </div>
       <div class="container">
         <div class="row">
-          <div class="col-lg-8 mx-auto">
-            <h2 class="mb-4" data-aos="fade-up">
-              Ready to Transform Your Brand?
-            </h2>
-            <p class="lead mb-4" data-aos="fade-up" data-aos-delay="100">
-              Let's create stunning designs that capture your brand's essence.
+          <div class="col-lg-8 mx-auto text-center">
+            <h2 class="mb-4">Ready to Transform Your Brand?</h2>
+            <p class="lead mb-5">
+              Let's create stunning designs that capture your brand's essence
+              and connect with your audience. Get in touch today to start your
+              design journey.
             </p>
             <a
               href="../contact.html"
               class="btn btn-primary btn-lg pulse-button"
-              data-aos="fade-up"
-              data-aos-delay="200"
               >Start Your Design Project</a
             >
           </div>
@@ -265,11 +1758,88 @@
       </div>
     </section>
 
-    <!-- Footer (same as index.html with updated paths) -->
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>About Us</h3>
+          <p>
+            We are dedicated to delivering innovative solutions and exceptional
+            service to our clients. Our team of experts works tirelessly to
+            ensure your success.
+          </p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
 
-    <script src="https://kit.fontawesome.com/your-kit-code.js"></script>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <div class="footer-links">
+            <a href="../index.html">Home</a>
+            <a href="../about.html">About Us</a>
+            <a href="web-development.html">Services</a>
+            <a href="../contact.html">Contact</a>
+            <a href="../blog.html">Blog</a>
+          </div>
+        </div>
+
+        <div class="footer-section">
+          <h3>Contact Info</h3>
+          <div class="contact-info">
+            <p>
+              <i class="fas fa-map-marker-alt"></i> H.No. 24, Near Sagar
+              College, Sagar Green Estate, Ayodhya Bypass Road, Ayodhya Nagar,
+              Bhopal, Madhya Pradesh
+            </p>
+            <p><i class="fas fa-phone"></i> +91 7470500347, +91 9165478447</p>
+            <p><i class="fas fa-envelope"></i> tensixmediasofttech@gmail.com</p>
+            <p><i class="fas fa-clock"></i> Mon - Fri: 9:00 AM - 6:00 PM</p>
+          </div>
+        </div>
+
+        <div class="footer-section">
+          <h3>Newsletter</h3>
+          <p>Subscribe to our newsletter for updates and insights.</p>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Enter your email" required />
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2024 Tensix Media Softtech. All rights reserved.</p>
+      </div>
+    </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="../js/main.js"></script>
+    <script>
+      // Navbar scroll effect
+      window.addEventListener("scroll", function () {
+        const navbar = document.querySelector(".navbar");
+        if (window.scrollY > 50) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+      });
+
+      // Initialize any animations or interactions
+      document.addEventListener("DOMContentLoaded", function () {
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+          anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute("href")).scrollIntoView({
+              behavior: "smooth",
+            });
+          });
+        });
+      });
+    </script>
   </body>
 </html>
