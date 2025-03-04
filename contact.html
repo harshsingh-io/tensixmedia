@@ -940,6 +940,80 @@
           padding: 250px 0 450px; /* Increased bottom padding */
         }
       }
+
+      /* Add this to your CSS to prevent horizontal scroll */
+      html,
+      body {
+        overflow-x: hidden;
+        width: 100%;
+        position: relative;
+      }
+
+      /* Fix for potential overflowing elements */
+      .container {
+        max-width: 100%;
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+
+      /* Ensure images don't cause overflow */
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+
+      /* Additional fixes for Contact page specific elements */
+      .floating-icon {
+        pointer-events: none; /* Prevents interaction issues on small screens */
+      }
+
+      .contact-card,
+      .contact-form-card,
+      .contact-info-card,
+      .accordion-item {
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
+      }
+
+      /* Office map fix */
+      .office-map {
+        width: 100%;
+        overflow: hidden;
+      }
+
+      .office-map iframe {
+        max-width: 100%;
+      }
+
+      /* Fix form elements on mobile */
+      @media only screen and (max-width: 767px) {
+        .form-floating,
+        .form-control,
+        .form-select,
+        .btn {
+          width: 100%;
+          max-width: 100%;
+        }
+
+        /* Fix contact cards */
+        .contact-card {
+          margin-bottom: 20px;
+        }
+
+        /* Center contact icons on mobile */
+        .contact-icon {
+          margin-left: auto;
+          margin-right: auto;
+        }
+
+        /* Fix social icons wrap */
+        .social-icons {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+      }
     </style>
   </head>
   <body>

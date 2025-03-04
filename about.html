@@ -943,6 +943,69 @@
           padding: 250px 0 450px; /* Increased bottom padding */
         }
       }
+
+      /* Add this to your CSS to prevent horizontal scroll */
+      html,
+      body {
+        overflow-x: hidden;
+        width: 100%;
+        position: relative;
+      }
+
+      /* Fix for potential overflowing elements */
+      .container {
+        max-width: 100%;
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+
+      /* Ensure images don't cause overflow */
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+
+      /* Additional fixes for About page specific elements */
+      .floating-circle {
+        pointer-events: none; /* Prevents interaction issues on small screens */
+      }
+
+      .team-card,
+      .value-card,
+      .timeline-content,
+      .stat-card {
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .mission-image {
+        max-width: 100%;
+        overflow: hidden;
+      }
+
+      /* Fix timeline container on mobile */
+      @media only screen and (max-width: 767px) {
+        .timeline-container {
+          width: 100%;
+          padding: 0 15px;
+        }
+
+        .experience-badge {
+          max-width: 100%;
+        }
+
+        .team-image img {
+          width: 100%;
+          height: auto;
+          object-fit: cover;
+        }
+
+        /* Center value icons on mobile */
+        .value-icon {
+          margin-left: auto;
+          margin-right: auto;
+        }
+      }
     </style>
   </head>
   <body>
